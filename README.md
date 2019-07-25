@@ -1,201 +1,151 @@
-[![General Assembly Logo](https://camo.githubusercontent.com/1a91b05b8f4d44b5bbfb83abac2b0996d8e26c92/687474703a2f2f692e696d6775722e636f6d2f6b6538555354712e706e67)](https://generalassemb.ly/education/web-development-immersive)
+# **Barks-and-Rec**
 
-# barks-and-rec-server-mvp
+Survey Says is a web application that allows users to log in, create/update/delete surveys, take surveys,
+and view the results of surveys.
 
-A template for starting projects with `express` as an API. Includes
-authentication and common middlewares.
+
+**Technologies Used**
+===
+
+Back-End
+---
+- ![node](https://icongr.am/devicon/nodejs-original.svg) Node
+- ![express](https://icongr.am/devicon/express-original.svg) Express
+- ![mongo](https://icongr.am/devicon/mongodb-original-wordmark.svg) MongoDB
+- ![mongoose](https://pm1.narvii.com/6325/27c78e40ca616a10b0dc546b5a91b532596217b4_128.jpg) Mongoose
+
+
+Front-End
+---
+- ![javascript](https://icongr.am/devicon/javascript-original.svg) Javascript
+- ![react](https://icongr.am/devicon/react-original.svg) React
+
+
+Styling
+---
+- ![html](https://icongr.am/devicon/html5-original.svg) HTML
+- ![css](https://icongr.am/devicon/css3-original.svg) CSS
+- ![sass](https://icongr.am/devicon/sass-original.svg) Sass
+- ![Material-UI](https://d2.alternativeto.net/dist/icons/material-ui_125634.png?width=128&height=128&mode=crop&upscale=false) Material-UI
+
+
+Links
+---
+* Front-End Repo: https://github.com/agregthomas/barks-and-rec-client-mvp
+* Back-End Repo: https://github.com/agregthomas/barks-and-rec-server-mvp
+* Deployed Front-End: https://agregthomas.github.io/barks-and-rec-client-mvp
+* Deployed Back-End: https://floating-ocean-75150.herokuapp.com/
+
 
 ## Installation
 
-1.  [Download](../../archive/master.zip) this template.
-1.  Move the .zip file to your `wdi/projects/` directory and Unzip it (creating a folder) -- **NOTE:** if the folder was already unzipped, use the `mv` command line to move it to the `wdi/projects/` directory.
-1.  Rename the directory from barks-and-rec-server-mvp -> your-app-name.
-1.  Empty [`README.md`](README.md) and fill with your own content.
-1.  Move into the new project and `git init`.
-1.  Replace all instances of `'barks-and-rec-server-mvp'` with your app name.
-1.  Install dependencies with `npm install`.
-1.  Ensure that you have `nodemon` installed by running `npm install -g nodemon`.
-1.  Ensure the API is functioning properly by running `npm run server`.
-1.  Once everything is working, make an initial commit.
-1.  Follow the steps in [express-api-deployment-guide](https://git.generalassemb.ly/ga-wdi-boston/express-api-deployment-guide)
+1. Fork and clone this repository.
+2. Install dependencies using npm install.
+3. This application leans heavily on Material-UI and Notistack for Snackbar management. It does not, however, use Material-UI icons. Should you like to add this please `npm install @material-ui/icons`.
+4. `git add.` and `git commit` your changes.
+5. Spin up a local environment with `npm start`.
+  1. NOTE: by default the application will be hosted on port 7165. Should you like to change this, you may do so by changing the hard-coding in scripts/start.js ln:43.
 
-## Structure
+User Stories
+---
+### Authorization
+* As a new user, I can sign up for the application using an email and password.
+* As a signed up user, I can use my credentials to sign in to the application.
+* As a signed in user, I can change my password.
+* As a signed in user, I can sign out.
 
-Dependencies are stored in [`package.json`](package.json).
 
-The most important file for understanding the structure of the template is
-`server.js`. This is where the actual Express `app` object is created, where
-the middlewares and routes are registered, and more. To register a routefile,
-follow the pattern established here with `exampleRoutes` and `userRoutes`. If
-you want to add any middlewares to your app, do that here.
+### Dog Create/Edit
+* As a signed in user, I can get all dogs.
+* As a signed in user, I can create a new dog.
+* As a signed in user, I can change the name and breed of a dog.
+* As a signed in user, I can remove dogs I have created.
 
-The `app` directory contains models and route files. Models are simply Mongoose
-models. To create your own, follow the patterns established in
-`app/models/example.js`. Route files are somewhat similar to controllers in
-Rails, but they cover more functionality, including serialization and deciding
-which HTTP verbs to accept and what to do with them.
 
-The `config` directory holds just `db.js`, which is where you specify the name
-and URL of your database.
+Wireframe
+---
+### Main Page
+![mainpage](./photos/mainpage.jpg)
 
-The `lib` directory is for code that will be used in other places in the
-application. The token authentication code is stored in `lib/auth.js`. The
-other files in `lib` deal with error handling. `custom_errors.js` is where all
-the different custom classes of errors are created. If you need some other kind
-of error message, you can add it here. There are also some functions defined
-here that are used elsewhere to check for errors. `lib/error_handler.js` is a
-function that will be used in all your `.catch`es. It catches errors, and sets
-the response status code based on what type of error got thrown.
+### Dog Profile
+![dogpage](./photos/dogpage.jpg)
 
-You probably will only need to interact with files in `app/models`,
-`app/routes`, and `server.js`. You'll need to edit `db/config.js` just once,
-to change the name of your app.
+### Edit/Create Form
+![dogform](./photos/dogform.jpg)
 
-## Tasks
+Entity Relationship Diagram
+------
+### Basic ERD
+![erd1](./photos/erd.jpg)
 
-Instead of `grunt`, this template uses `npm` as a task runner. This is more
-conventional for modern Express apps, and it's handy because we'll definitely
-use `npm` anyway. These are the commands available:
 
-| Command                | Effect                                                                                                      |
-|------------------------|-------------------------------------------------------------------------------------------------------------|
-| `npm run server`       | Starts a development server with `nodemon` that automatically refreshes when you change something.                                                                                         |
-| `npm test`             | Runs automated tests.                                                                                       |
-| `npm run debug-server` | Starts the server in debug mode, which will print lots of extra info about what's happening inside the app. |
-
-## API
-
-Use this as the basis for your own API documentation. Add a new third-level
-heading for your custom entities, and follow the pattern provided for the
-built-in user authentication documentation.
-
-Scripts are included in [`curl-scripts`](curl-scripts) to test built-in actions.
-Add your own scripts to test your custom API.
-
+API Paths & Methods
+------
 ### Authentication
 
-| Verb   | URI Pattern            | Controller#Action |
-|--------|------------------------|-------------------|
-| POST   | `/sign-up`             | `users#signup`    |
-| POST   | `/sign-in`             | `users#signin`    |
-| PATCH  | `/change-password/` | `users#changepw`  |
-| DELETE | `/sign-out/`        | `users#signout`   |
+| Method | URL
+|--------|------------------------
+| POST   | `/sign-up`
+| POST   | `/sign-in`
+| PATCH  | `/change-password/`
+| DELETE | `/sign-out/`
 
-#### POST /sign-up
+### Dogs
 
-Request:
+| Method   | URL
+|--------|------------------------
+| POST   | `/create-dog`
+| GET    | `/dogs`
+| GET    | `/dogs/:id`
+| PATCH  | `/dogs/:id`
+| DELETE | `/dogs/:id`
 
-```sh
-curl --include --request POST http://localhost:4741/sign-up \
-  --header "Content-Type: application/json" \
-  --data '{
-    "credentials": {
-      "email": "an@example.email",
-      "password": "an example password",
-      "password_confirmation": "an example password"
-    }
-  }'
-```
 
-```sh
-curl-scripts/sign-up.sh
-```
+Planning
+------
 
-Response:
+#### BRAINSTORM ####
+I knew from the start of the course I wanted to write an application having something to do with dogs. Joking with a few classmates, we cooked up an idea for a site that would allow you to register your pup and be matched with other dog-lovers looking for a play date! Thus, Barks and Rec was born.
 
-```md
-HTTP/1.1 201 Created
-Content-Type: application/json; charset=utf-8
+#### GOALS ####
+1. Create a resource for CRUDing Dog Profiles.
+- Integrate with a third-party datastore to allow for storage of dog avatars.
+2. Create a resource for traking local meet-up spots (i.e. Parks, dog-friendly venues, etc.).
+- Integrate with a third-party API capable of parsing geolocation data.
+- Categorize by neighborhood.
 
-{
-  "user": {
-    "id": 1,
-    "email": "an@example.email"
-  }
-}
-```
 
-#### POST /sign-in
+Process
+------
+* Refactoring the Express Template to sit on a PostgreSQL database instead of MongoDB.
+  - Explored using an ORM (Knex.js being the most popular). Ultimately used SQL queries with Node's pg package.
+  - Introduced pg-patch middleware for dynamically constructing PATCH requests.
+* Refactoring Auth on the front-end to conform to the new data standard.
+* Research and implement Google Maps API.
 
-Request:
 
-```sh
-curl --include --request POST http://localhost:4741/sign-in \
-  --header "Content-Type: application/json" \
-  --data '{
-    "credentials": {
-      "email": "an@example.email",
-      "password": "an example password"
-    }
-  }'
-```
+Problem-Solving Strategy
+------
 
-```sh
-curl-scripts/sign-in.sh
-```
+* Utilized online resources such as StackOverflow to investigate ways to resolve issues
+* Extensive research on best-practices for implementing SQL with Node, including connection pooling, Promisified queries, and building programmatic queries.
+* Utilized a Chrome React Extension allowing state to be traceable through the console.
+* Submitted inquiries to the General Assembly Project Issue queue to request assistance from instructors
 
-Response:
+Back-to-Life, Back-to-Reactality
+----
+If the above sounds ambitious for a four-day project, you are far more perceptive than I dear reader. The best laid plans of mice and men as they say...
 
-```md
-HTTP/1.1 200 OK
-Content-Type: application/json; charset=utf-8
+Of the above-mentioned features, only the ability to CRUD on dogs has been implemented.
 
-{
-  "user": {
-    "id": 1,
-    "email": "an@example.email",
-    "token": "33ad6372f795694b333ec5f329ebeaaa"
-  }
-}
-```
-
-#### PATCH /change-password/
-
-Request:
-
-```sh
-curl --include --request PATCH http://localhost:4741/change-password/ \
-  --header "Authorization: Token token=$TOKEN" \
-  --header "Content-Type: application/json" \
-  --data '{
-    "passwords": {
-      "old": "an example password",
-      "new": "super sekrit"
-    }
-  }'
-```
-
-```sh
-TOKEN=33ad6372f795694b333ec5f329ebeaaa curl-scripts/change-password.sh
-```
-
-Response:
-
-```md
-HTTP/1.1 204 No Content
-```
-
-#### DELETE /sign-out/
-
-Request:
-
-```sh
-curl --include --request DELETE http://localhost:4741/sign-out/ \
-  --header "Authorization: Token token=$TOKEN"
-```
-
-```sh
-TOKEN=33ad6372f795694b333ec5f329ebeaaa curl-scripts/sign-out.sh
-```
-
-Response:
-
-```md
-HTTP/1.1 204 No Content
-```
-
-## [License](LICENSE)
-
-1.  All content is licensed under a CC­BY­NC­SA 4.0 license.
-1.  All software code is licensed under GNU GPLv3. For commercial use or
-    alternative licensing, please contact legal@ga.co.
+Plans for Future Improvements
+------
+* Finish refactoring the template to sit on top of a PSQL database. Tasks remaining:
+  - Finish boilerplate Auth.
+  - Implement pg-patch library to allow for dynamic construction of UPDATE queries.
+  - Research Knex.js and possibly refactor with ORM best practices for a more "modern" feel.
+* Create resources for persisting Dog-friendly Locations and for users to schedule Play Dates.
+  - Possibility for gamifying users' participation (e.g. if your dog has been on 5+ play dates it gets a "Good Boy Award").
+  - Enhance Location resource with geoloc data and render it with Google Maps API.
+- Update Dog resource with image upload to allow for creation of Avatars.
+- More fun with Material-UI!
