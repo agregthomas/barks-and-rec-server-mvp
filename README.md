@@ -40,11 +40,10 @@ Links
 ## Installation
 
 1. Fork and clone this repository.
-2. Install dependencies using npm install.
-3. This application leans heavily on Material-UI and Notistack for Snackbar management. It does not, however, use Material-UI icons. Should you like to add this please `npm install @material-ui/icons`.
+2. Install dependencies using `npm install`.
+3. Ensure that you have nodemon installed by running `npm install -g nodemon`.
 4. `git add.` and `git commit` your changes.
-5. Spin up a local environment with `npm start`.
-  1. NOTE: by default the application will be hosted on port 7165. Should you like to change this, you may do so by changing the hard-coding in scripts/start.js ln:43.
+5. Spin up a local environment with `npm run server`.
 
 User Stories
 ---
